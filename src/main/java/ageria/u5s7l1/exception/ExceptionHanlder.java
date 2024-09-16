@@ -26,7 +26,7 @@ public class ExceptionHanlder {
         return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
     }
 
-    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    @ExceptionHandler(UnauthorizedException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ErrorsDTO handleUnauthorized(UnauthorizedException ex) {
         return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());

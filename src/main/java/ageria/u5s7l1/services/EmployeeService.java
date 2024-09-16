@@ -50,6 +50,7 @@ public class EmployeeService {
                 body.surname(),
                 body.username(),
                 body.email(),
+                body.password(),
                 "https://ui-avatars.com/api/?name=" + body.name() + "+" + body.surname());
         return this.employeeRepository.save(newEmployee);
 
