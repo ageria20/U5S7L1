@@ -81,5 +81,9 @@ public class EmployeeService {
         }
     }
 
+    public Employee findFromEmail(String email) {
+        return this.employeeRepository.findByEmail(email).orElseThrow(() -> new NotFoundException("EMPLOYEE NOT FOUND"));
+    }
+
 
 }

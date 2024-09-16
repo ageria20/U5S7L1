@@ -1,6 +1,6 @@
 package ageria.u5s7l1.exception;
 
-import ageria.U5S6L5.dto.ErrorsDTO;
+import ageria.u5s7l1.dto.ErrorsDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -26,7 +26,12 @@ public class ExceptionHanlder {
         return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
     }
 
-    ;
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorsDTO handleUnauthorized(UnauthorizedException ex) {
+        return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
+    }
+
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -40,5 +45,5 @@ public class ExceptionHanlder {
         return new ErrorsDTO(ex.getMessage(), LocalDateTime.now());
     }
 
-    ;
+
 }
